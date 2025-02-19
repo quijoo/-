@@ -1,0 +1,396 @@
+[gd_scene load_steps=29 format=3 uid="uid://c5wq030spwraa"]
+
+[ext_resource type="Script" uid="uid://crwgrgs2sgvxu" path="res://scripts/camera_controller.gd" id="1_5uqbp"]
+[ext_resource type="PackedScene" uid="uid://m6cqh563tss8" path="res://resources/gdbot.glb" id="1_7wnc2"]
+[ext_resource type="Script" uid="uid://c5s5pfpmlfxr5" path="res://scripts/character.gd" id="2_rerym"]
+[ext_resource type="Texture2D" uid="uid://cf4085hc6r3wt" path="res://icon.svg" id="4_uijja"]
+[ext_resource type="Script" uid="uid://bfckkbkmrshca" path="res://scripts/wall_controller.gd" id="5_5nv5w"]
+
+[sub_resource type="Environment" id="Environment_l14r6"]
+background_mode = 2
+background_color = Color(0.529412, 0.807843, 0.921569, 1)
+sdfgi_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t218m"]
+albedo_color = Color(1, 0.980392, 0.803922, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v6xcw"]
+material = SubResource("StandardMaterial3D_t218m")
+size = Vector2(10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l14r6"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l14r6"]
+albedo_color = Color(0.290196, 0.564706, 0.886275, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfa6b"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uijja"]
+data = PackedVector3Array(3.85765, 1, 2.13062, 2.52478, 1, 1.76869, 3.85765, 0, 2.13062, 2.23079, 0, 2.58856, 2.52478, 0, 1.76869, 2.45832, 0, 1.75064, 2.52478, 1, 1.76869, 2.52478, 0, 1.76869, 3.85765, 0, 2.13062, 3.85765, 0, 2.13062, 2.23079, 0, 2.58856, 2.06524, 0, 3.19822, 2.06524, 0, 3.19822, 2.30059, 0, 3.26213, 3.85765, 0, 2.13062, 2.30059, 0, 3.26213, 3.46457, 0, 3.5782, 3.85765, 0, 2.13062, 3.46457, 0, 3.5782, 3.46457, 1, 3.5782, 3.85765, 0, 2.13062, 3.46457, 0, 3.5782, 2.30059, 0, 3.26213, 3.46457, 1, 3.5782, 4.9604, 0, 3.98438, 5.35348, 0, 2.5368, 3.95415, 0, 2.15682, 3.56107, 0, 3.6044, 4.9604, 0, 3.98438, 3.95415, 0, 2.15682, 3.95415, 1, 2.15682, 3.56107, 0, 3.6044, 3.95415, 0, 2.15682, 3.95415, 0, 2.15682, 5.35348, 0, 2.5368, 3.95415, 1, 2.15682, 4.9604, 0, 3.98438, 3.56107, 0, 3.6044, 4.9604, 1, 3.98438, 4.9604, 1, 3.98438, 5.35348, 0, 2.5368, 4.9604, 0, 3.98438, 2.52478, 0, 1.76869, 2.23079, 0, 2.58856, 3.85765, 0, 2.13062, 2.52478, 1, 1.76869, 2.23079, 1, 2.58856, 2.45832, 1, 1.75064, 2.52478, 1, 1.76869, 3.85765, 1, 2.13062, 2.23079, 1, 2.58856, 3.85765, 1, 2.13062, 3.85765, 0, 2.13062, 3.46457, 1, 3.5782, 3.56107, 1, 3.6044, 3.56107, 0, 3.6044, 3.95415, 1, 2.15682, 3.46457, 1, 3.5782, 2.30059, 0, 3.26213, 2.30059, 1, 3.26213, 2.23079, 1, 2.58856, 3.85765, 1, 2.13062, 2.06524, 1, 3.19822, 3.85765, 1, 2.13062, 2.30059, 1, 3.26213, 2.06524, 1, 3.19822, 3.85765, 1, 2.13062, 3.46457, 1, 3.5782, 2.30059, 1, 3.26213, 5.35348, 0, 2.5368, 5.35348, 1, 2.5368, 3.95415, 1, 2.15682, 4.9604, 1, 3.98438, 5.35348, 1, 2.5368, 5.35348, 0, 2.5368, 3.56107, 1, 3.6044, 4.9604, 1, 3.98438, 3.56107, 0, 3.6044, 5.35348, 1, 2.5368, 4.9604, 1, 3.98438, 3.95415, 1, 2.15682, 3.95415, 1, 2.15682, 4.9604, 1, 3.98438, 3.56107, 1, 3.6044, 2.24111, 0, 0.809597, 2.52478, 1, 1.76869, 2.24111, 1, 0.809597, -1.08074, 0, 1.79212, 0.296554, 0, 0.341926, 0.296554, 1, 0.341926, 0.863815, 0, 2.25979, 2.24111, 0, 0.809597, 0.296554, 0, 0.341926, 2.45832, 0, 1.75064, 2.24111, 0, 0.809597, 0.863815, 0, 2.25979, 2.45832, 0, 1.75064, 0.863815, 0, 2.25979, 2.23079, 0, 2.58856, 2.24111, 0, 0.809597, 2.24111, 1, 0.809597, 0.296554, 0, 0.341926, -1.08074, 0, 1.79212, -0.513477, 0, 3.70999, 0.863815, 0, 2.25979, -0.513477, 0, 3.70999, -1.08074, 0, 1.79212, -1.08074, 1, 1.79212, -0.513477, 0, 3.70999, -0.513477, 1, 3.70999, 1.43108, 0, 4.17766, 2.06524, 0, 3.19822, 2.23079, 0, 2.58856, 0.863815, 0, 2.25979, 2.06524, 0, 3.19822, 0.863815, 0, 2.25979, 1.43108, 0, 4.17766, -0.513477, 0, 3.70999, 1.43108, 0, 4.17766, 0.863815, 0, 2.25979, 2.06524, 0, 3.19822, 1.43108, 0, 4.17766, 2.30059, 0, 3.26213, 2.30059, 0, 3.26213, 1.43108, 0, 4.17766, 1.43108, 1, 4.17766, 2.45832, 1, 1.75064, 2.24111, 1, 0.809597, 2.52478, 1, 1.76869, 0.296554, 1, 0.341926, -1.08074, 1, 1.79212, -1.08074, 0, 1.79212, 2.24111, 0, 0.809597, 2.45832, 0, 1.75064, 2.52478, 0, 1.76869, 0.296554, 1, 0.341926, 0.863815, 1, 2.25979, -1.08074, 1, 1.79212, 2.24111, 1, 0.809597, 0.296554, 1, 0.341926, 0.296554, 0, 0.341926, 2.24111, 1, 0.809597, 0.863815, 1, 2.25979, 0.296554, 1, 0.341926, 2.24111, 1, 0.809597, 2.45832, 1, 1.75064, 0.863815, 1, 2.25979, 0.863815, 1, 2.25979, 2.45832, 1, 1.75064, 2.23079, 1, 2.58856, -1.08074, 1, 1.79212, -0.513477, 1, 3.70999, -0.513477, 0, 3.70999, 0.863815, 1, 2.25979, -0.513477, 1, 3.70999, -1.08074, 1, 1.79212, -0.513477, 1, 3.70999, 1.43108, 1, 4.17766, 1.43108, 0, 4.17766, 1.43108, 1, 4.17766, 2.30059, 1, 3.26213, 2.30059, 0, 3.26213, 2.23079, 1, 2.58856, 2.06524, 1, 3.19822, 0.863815, 1, 2.25979, 0.863815, 1, 2.25979, 2.06524, 1, 3.19822, 1.43108, 1, 4.17766, 0.863815, 1, 2.25979, 1.43108, 1, 4.17766, -0.513477, 1, 3.70999, 2.52478, 0, 1.76869, 2.52478, 1, 1.76869, 2.24111, 0, 0.809597, 0.296554, 0, 0.341926, -1.08074, 0, 1.79212, 0.863815, 0, 2.25979, 1.43108, 1, 4.17766, 2.06524, 1, 3.19822, 2.30059, 1, 3.26213)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l14r6"]
+height = 1.5
+
+[sub_resource type="Animation" id="Animation_xp8tn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gdbot:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Decal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5nv5w"]
+resource_name = "enter_wall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Decal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gdbot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rhhhf"]
+resource_name = "exit_wall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gdbot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Decal:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhhhf"]
+_data = {
+&"RESET": SubResource("Animation_xp8tn"),
+&"enter_wall": SubResource("Animation_5nv5w"),
+&"exit_wall": SubResource("Animation_rhhhf")
+}
+
+[sub_resource type="GDScript" id="GDScript_uijja"]
+script/source = "extends ColorRect
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"top_view\"):
+		visible = !visible
+"
+
+[sub_resource type="GDScript" id="GDScript_rerym"]
+script/source = "extends SubViewport
+
+func _ready() -> void:
+	RayCastUtility.debug_view_viewport = self
+"
+
+[sub_resource type="Curve3D" id="Curve3D_rerym"]
+_data = {
+"points": PackedVector3Array(-0.0922146, 0, 1.72441, 0.0922146, 0, -1.72441, 5.97055, 0, 0.935486, 1.0028, 0, 0.897247, -1.0028, 0, -0.897247, 3.30448, 0, -4.06409, 1.7681, 0, -0.316675, -1.7681, 0, 0.316675, -1.99983, 0, -5.77941, -0.477803, 0, -2.30938, 0.477803, 0, 2.30938, -6.81298, 0, -2.80216),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rerym"]
+albedo_color = Color(0.290196, 0.564706, 0.886275, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rerym"]
+material = SubResource("StandardMaterial3D_rerym")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rerym"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[sub_resource type="Animation" id="Animation_uijja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rerym"]
+resource_name = "movement"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6, 9, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uijja"]
+_data = {
+&"RESET": SubResource("Animation_uijja"),
+&"movement": SubResource("Animation_rerym")
+}
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_uijja"]
+albedo_texture = ExtResource("4_uijja")
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_xp8tn"]
+
+[node name="Level_0" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l14r6")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("character", "wall_controller")]
+transform = Transform3D(0.915817, 0, -0.401596, -0.00641312, 0.999872, -0.0146247, 0.401545, 0.0159691, 0.9157, -2.53788, 1.9587, 6.60361)
+script = ExtResource("1_5uqbp")
+character = NodePath("../PlayerCharacter")
+wall_controller = NodePath("../OnWallController")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.118231, 0.430664, -0.894735, -1.24805e-08, 0.901054, 0.433706, 0.992986, 0.0512773, -0.106532, -5.10663, 1.35484, 3.07085)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_v6xcw")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_l14r6")
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="CSGCombiner3D" parent="Wall"]
+transform = Transform3D(0.978828, 0, 0.204684, 0, 1, 0, -0.204684, 0, 0.978828, -2.2671, 0, -0.878433)
+material_override = SubResource("StandardMaterial3D_l14r6")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Wall/Mesh"]
+transform = Transform3D(0.965053, 0, -0.262054, 0, 1, 0, 0.262054, 0, 0.965053, 3.70936, 0.5, 2.86751)
+size = Vector3(3, 1, 1.5)
+material = SubResource("StandardMaterial3D_vfa6b")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Wall/Mesh/CSGBox3D3"]
+operation = 2
+size = Vector3(0.1, 1, 1.6)
+material = SubResource("StandardMaterial3D_vfa6b")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Wall/Mesh"]
+transform = Transform3D(0.688646, 0, 0.725098, 0, 1, 0, -0.725098, 0, 0.688646, 0.863815, 0, 2.25979)
+polygon = PackedVector2Array(0, 0, 0, 1, 2, 1, 2, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 6
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(0.978828, 0, 0.204684, 0, 1, 0, -0.204684, 0, 0.978828, -2.2671, 0, -0.878433)
+shape = SubResource("ConcavePolygonShape3D_uijja")
+
+[node name="PlayerCharacter" type="CharacterBody3D" parent="." node_paths=PackedStringArray("decal", "mesh", "player")]
+transform = Transform3D(-0.998675, 0, 0.0514645, 0, 1, 0, -0.0514645, 0, -0.998675, 5.605, 0, 3.591)
+collision_layer = 8
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("2_rerym")
+decal = NodePath("Decal")
+mesh = NodePath("gdbot")
+player = NodePath("AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_l14r6")
+
+[node name="gdbot" parent="PlayerCharacter" instance=ExtResource("1_7wnc2")]
+
+[node name="Decal" type="Decal" parent="PlayerCharacter"]
+transform = Transform3D(1.00004, 0, 0, 0, -4.37124e-08, -1, 0, 1.00002, -4.37114e-08, 0, 1, 1)
+visible = false
+size = Vector3(1, 2, 1)
+texture_albedo = ExtResource("4_uijja")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerCharacter"]
+libraries = {
+&"": SubResource("AnimationLibrary_rhhhf")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TopView" type="ColorRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 500)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 520.0
+offset_bottom = 520.0
+script = SubResource("GDScript_uijja")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TopView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/TopView/CenterContainer"]
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/TopView/CenterContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(450, 450)
+render_target_update_mode = 4
+script = SubResource("GDScript_rerym")
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/TopView/CenterContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.83906, 6.90169, 3.04192)
+projection = 1
+size = 8.0
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -169.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Esc 打开/关闭 TopView"
+
+[node name="DynamicBodyPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_rerym")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="DynamicBodyPath"]
+transform = Transform3D(-0.979155, 0, -0.202584, 0, 1, 0, 0.202584, 0, -0.979155, -6.81298, 0, -2.80216)
+progress = 17.8729
+rotation_mode = 1
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DynamicBodyPath/PathFollow3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DynamicBodyPath/PathFollow3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_rerym")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DynamicBodyPath/PathFollow3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_rerym")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DynamicBodyPath"]
+libraries = {
+&"": SubResource("AnimationLibrary_uijja")
+}
+autoplay = "movement"
+
+[node name="OnWallController" type="Node3D" parent="."]
+transform = Transform3D(-0.986432, 0, 0.164169, 0, 1, 0, -0.164169, 0, -0.986432, -1.18242, 0.937741, 6.78349)
+script = ExtResource("5_5nv5w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OnWallController"]
+sorting_offset = 1.0
+material_override = SubResource("ORMMaterial3D_uijja")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_xp8tn")

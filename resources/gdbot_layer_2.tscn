@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://4nxeulbqsmot"]
+
+[ext_resource type="PackedScene" uid="uid://m6cqh563tss8" path="res://resources/gdbot.glb" id="1_b5hrx"]
+
+[node name="gdbot" instance=ExtResource("1_b5hrx")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/position = Vector3(0, 0, 0.514778)
+bones/2/rotation = Quaternion(-0.029842, 0.730745, 0.68143, -0.0278281)
+bones/3/rotation = Quaternion(0.999602, 0.0282056, -7.30795e-08, -3.09754e-10)
+bones/4/rotation = Quaternion(-0.318475, 0.0316674, 0.0385637, 0.946617)
+bones/5/rotation = Quaternion(0.00338823, 5.40813e-08, 8.93927e-10, 0.999994)
+bones/7/rotation = Quaternion(0.248614, 0.0460135, 0.0188836, 0.967325)
+bones/8/rotation = Quaternion(0.266251, -5.12325e-08, 9.32172e-08, 0.963904)
+bones/10/rotation = Quaternion(-0.497502, -0.532906, -0.471232, 0.49643)
+bones/11/rotation = Quaternion(-9.97437e-10, 2.22945e-08, -0.0702276, 0.997531)
+bones/13/rotation = Quaternion(0.012213, 1.61824e-07, 1.72853e-08, 0.999925)
+bones/14/rotation = Quaternion(-0.0875485, 1.94392e-09, -2.0179e-08, 0.99616)
+bones/16/rotation = Quaternion(-0.66394, -0.215872, -0.68466, 0.209339)
+bones/17/rotation = Quaternion(1.65412e-09, 1.10893e-08, -0.598392, 0.801204)
+bones/19/rotation = Quaternion(-0.483564, -0.00780519, -0.00210496, 0.875271)
+bones/20/rotation = Quaternion(-0.374709, -1.67888e-07, -1.402e-07, 0.927143)
+bones/21/rotation = Quaternion(-0.476841, -0.129739, -0.0109858, 0.869293)
+bones/22/rotation = Quaternion(-0.374708, 7.14597e-07, 2.25084e-08, 0.927143)
+bones/23/rotation = Quaternion(-0.483576, 0.00399009, 0.00107615, 0.875292)
+bones/24/rotation = Quaternion(-0.374708, 5.66946e-07, 1.79699e-07, 0.927143)
+bones/25/rotation = Quaternion(-0.479119, 0.0873992, -0.0138188, 0.873279)
+bones/26/rotation = Quaternion(-0.374709, 3.05431e-08, -7.93526e-08, 0.927143)
+bones/27/rotation = Quaternion(-0.345891, 0.8011, -0.0236155, 0.487894)
+bones/28/rotation = Quaternion(-0.374708, -3.45299e-07, -5.36168e-07, 0.927143)
+bones/29/rotation = Quaternion(-0.66394, -0.215872, -0.68466, 0.209339)
+bones/30/rotation = Quaternion(1.65412e-09, 1.10893e-08, -0.598392, 0.801204)
+bones/32/rotation = Quaternion(0.00709339, -0.0136263, -0.461694, 0.886906)
+bones/33/rotation = Quaternion(-0.547191, 0.480547, 0.421522, 0.540347)
+bones/34/rotation = Quaternion(3.68387e-10, 5.45651e-09, 0.00175657, 0.999999)
+bones/37/rotation = Quaternion(-0.698954, 0.20459, 0.648876, 0.220379)
+bones/38/rotation = Quaternion(-8.43815e-09, 1.73966e-09, 0.517254, 0.855832)
+bones/40/rotation = Quaternion(-0.483564, 0.00780523, 0.00210502, 0.875271)
+bones/41/rotation = Quaternion(-0.374709, 1.46009e-07, 1.36119e-07, 0.927143)
+bones/42/rotation = Quaternion(-0.476841, 0.129739, 0.0109859, 0.869293)
+bones/43/rotation = Quaternion(-0.374708, -6.89986e-07, -2.65264e-08, 0.927143)
+bones/44/rotation = Quaternion(-0.483576, -0.00399008, -0.00107613, 0.875292)
+bones/45/rotation = Quaternion(-0.374708, -5.83049e-07, -1.87735e-07, 0.927143)
+bones/46/rotation = Quaternion(-0.479119, -0.0873992, 0.0138188, 0.873279)
+bones/47/rotation = Quaternion(-0.374709, -9.08717e-09, 6.16204e-08, 0.927143)
+bones/48/rotation = Quaternion(-0.345891, -0.8011, 0.0236156, 0.487894)
+bones/49/rotation = Quaternion(-0.374708, 3.09567e-07, 5.47157e-07, 0.927143)
+bones/50/rotation = Quaternion(-0.698954, 0.20459, 0.648876, 0.220379)
+bones/51/rotation = Quaternion(-8.43815e-09, 1.73966e-09, 0.517254, 0.855832)
+bones/53/rotation = Quaternion(-0.0171443, -0.032934, 0.46143, 0.886399)
+bones/54/position = Vector3(-0.130811, 0.195522, 0.148649)
+bones/54/rotation = Quaternion(0.192649, 4.27767e-17, 9.69417e-24, 0.981268)
+bones/55/position = Vector3(-3.05491e-05, -0.00148033, 0.00794096)
+bones/56/rotation = Quaternion(-2.06795e-25, 0, 1, 4.1359e-25)
+bones/58/position = Vector3(0.130811, -0.286152, 0.233606)
+bones/58/rotation = Quaternion(-0.362187, -8.04216e-17, -1.77486e-24, 0.932106)
+bones/59/position = Vector3(3.05086e-08, -2.87355e-08, -7.12559e-08)
+bones/60/rotation = Quaternion(8.27181e-25, 0, 1, 1.65436e-24)
+
+[node name="gdbot_mesh" parent="Armature/Skeleton3D" index="0"]
+layers = 2
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "walk"

@@ -1,0 +1,614 @@
+[gd_scene load_steps=30 format=3 uid="uid://c5wq030spwraa"]
+
+[ext_resource type="Script" uid="uid://crwgrgs2sgvxu" path="res://scripts/camera_controller.gd" id="1_5uqbp"]
+[ext_resource type="PackedScene" uid="uid://m6cqh563tss8" path="res://resources/gdbot.glb" id="1_7wnc2"]
+[ext_resource type="Script" uid="uid://c5s5pfpmlfxr5" path="res://scripts/character.gd" id="2_rerym"]
+[ext_resource type="Texture2D" uid="uid://cf4085hc6r3wt" path="res://icon.svg" id="4_uijja"]
+
+[sub_resource type="Environment" id="Environment_l14r6"]
+background_mode = 2
+background_color = Color(0.529412, 0.807843, 0.921569, 1)
+sdfgi_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t218m"]
+albedo_color = Color(1, 0.980392, 0.803922, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v6xcw"]
+material = SubResource("StandardMaterial3D_t218m")
+size = Vector2(10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l14r6"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l14r6"]
+albedo_color = Color(0.290196, 0.564706, 0.886275, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rlqi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfa6b"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uijja"]
+data = PackedVector3Array(-1.5, 0, 0.25, -1.5, 0, -0.25, -1.5, 1, -0.25, -1.5, 0, -0.25, -1.5, 0, 0.25, 1.5, 0, -0.25, -1.5, 1, -0.25, 1.5, 1, 0.25, 1.16305, 1, 0.25, -1.5, 1, -0.25, 1.5, 1, -0.23956, 1.5, 1, 0.25, 1.5, 1, -0.25, 1.5, 1, -0.23956, -1.5, 1, -0.25, 1.5, 1, -0.25, 1.5, 0, -0.23956, 1.5, 1, -0.23956, 1.5, 0, -0.25, 1.5, 1, -0.25, -1.5, 1, -0.25, 1.16305, 1, 0.25, -1.5, 1, 0.25, -1.5, 1, -0.25, -1.5, 0, 0.25, -1.5, 1, 0.25, 1.16305, 1, 0.25, -1.5, 1, -0.25, -1.5, 1, 0.25, -1.5, 0, 0.25, 1.5, 0, -0.23956, 1.5, 1, -0.25, 1.5, 0, -0.25, -1.5, 0, 0.25, 1.16305, 1, 0.25, 1.16305, 0, 0.25, 1.5, 0, -0.23956, 1.16305, 0, 0.25, 1.5, 0, 0.25, 1.5, 0, -0.23956, 1.5, 0, -0.25, 1.16305, 0, 0.25, -1.5, 0, 0.25, 1.16305, 0, 0.25, 1.5, 0, -0.25, 1.5, 0, -0.25, -1.5, 1, -0.25, -1.5, 0, -0.25, 2.19634, 1, 2.7152, 2.1964, 1, 2.71518, 2.1964, 0, 2.71518, 2.1964, 1, 2.71518, 2.19634, 1, 2.7152, 2.32729, 1, 2.23317, 2.32729, 1, 2.23317, 2.19634, 1, 2.7152, 1.5, 1, -0.23956, 2.32729, 1, 2.23317, 1.5, 1, -0.23956, 2.56331, 1, 2.29725, 2.19634, 1, 2.7152, 2.1964, 0, 2.71518, 2.19634, 0, 2.7152, 1.5, 1, 0.25, 2.19634, 1, 2.7152, 1.16305, 1, 0.25, 2.32729, 0, 2.23317, 1.16305, 0, 0.25, 2.1964, 0, 2.71518, 1.5, 0, -0.23956, 2.56331, 0, 2.29725, 2.56331, 1, 2.29725, 2.19634, 1, 2.7152, 2.19634, 0, 2.7152, 1.16305, 1, 0.25, 1.16305, 0, 0.25, 2.32729, 0, 2.23317, 2.56331, 0, 2.29725, 1.5, 1, 0.25, 1.5, 1, -0.23956, 2.19634, 1, 2.7152, 1.5, 0, 0.25, 2.56331, 0, 2.29725, 1.5, 0, -0.23956, 2.56331, 0, 2.29725, 1.5, 0, 0.25, 1.16305, 0, 0.25, 1.16305, 0, 0.25, 1.16305, 1, 0.25, 2.19634, 0, 2.7152, 2.1964, 0, 2.71518, 1.16305, 0, 0.25, 2.19634, 0, 2.7152, 1.5, 1, -0.23956, 1.5, 0, -0.23956, 2.56331, 1, 2.29725, 2.19626, 1, 2.71569, 2.1964, 0, 2.71518, 2.1964, 1, 2.71518, 2.19626, 1, 2.71569, 3.59559, 1, 3.09567, 2.19626, 0, 2.71569, 2.56331, 1, 2.29725, 2.1964, 1, 2.71518, 2.32729, 1, 2.23317, 2.56331, 1, 2.29725, 3.72662, 1, 2.61314, 2.1964, 1, 2.71518, 3.72662, 1, 2.61314, 2.19626, 1, 2.71569, 2.1964, 1, 2.71518, 3.72662, 1, 2.61314, 3.59559, 1, 3.09567, 2.19626, 1, 2.71569, 3.59559, 1, 3.09567, 3.72662, 1, 2.61314, 3.59559, 0, 3.09567, 3.82312, 1, 2.63935, 3.6921, 1, 3.12188, 3.82312, 0, 2.63935, 3.6921, 1, 3.12188, 5.09142, 1, 3.50186, 3.6921, 0, 3.12188, 5.22245, 0, 3.01933, 5.22245, 1, 3.01933, 3.82312, 1, 2.63935, 5.09142, 1, 3.50186, 5.22245, 1, 3.01933, 5.22245, 0, 3.01933, 3.82312, 1, 2.63935, 5.09142, 1, 3.50186, 3.6921, 1, 3.12188, 5.22245, 1, 3.01933, 5.09142, 1, 3.50186, 3.82312, 1, 2.63935, 3.72662, 0, 2.61314, 3.72662, 1, 2.61314, 2.56331, 1, 2.29725, 5.09142, 0, 3.50186, 5.09142, 1, 3.50186, 5.22245, 0, 3.01933, 5.09142, 0, 3.50186, 3.6921, 0, 3.12188, 5.09142, 1, 3.50186, 5.22245, 0, 3.01933, 3.82312, 1, 2.63935, 3.82312, 0, 2.63935, 3.82312, 0, 2.63935, 3.6921, 1, 3.12188, 3.6921, 0, 3.12188, 3.59559, 0, 3.09567, 3.72662, 1, 2.61314, 3.72662, 0, 2.61314, 5.09142, 0, 3.50186, 5.22245, 0, 3.01933, 3.82312, 0, 2.63935, 3.82312, 0, 2.63935, 3.6921, 0, 3.12188, 5.09142, 0, 3.50186, 2.19626, 0, 2.71569, 3.59559, 1, 3.09567, 3.59559, 0, 3.09567, 2.1964, 0, 2.71518, 2.19626, 1, 2.71569, 2.19626, 0, 2.71569, 3.72662, 0, 2.61314, 2.56331, 1, 2.29725, 2.56331, 0, 2.29725, 3.72662, 0, 2.61314, 2.19626, 0, 2.71569, 3.59559, 0, 3.09567, 2.1964, 0, 2.71518, 2.19626, 0, 2.71569, 3.72662, 0, 2.61314, 2.56331, 0, 2.29725, 2.1964, 0, 2.71518, 3.72662, 0, 2.61314, 2.1964, 0, 2.71518, 2.56331, 0, 2.29725, 2.32729, 0, 2.23317)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l14r6"]
+height = 1.5
+
+[sub_resource type="Animation" id="Animation_xp8tn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gdbot:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Decal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5nv5w"]
+resource_name = "enter_wall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Decal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gdbot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rhhhf"]
+resource_name = "exit_wall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gdbot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Decal:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhhhf"]
+_data = {
+&"RESET": SubResource("Animation_xp8tn"),
+&"enter_wall": SubResource("Animation_5nv5w"),
+&"exit_wall": SubResource("Animation_rhhhf")
+}
+
+[sub_resource type="GDScript" id="GDScript_uijja"]
+script/source = "extends ColorRect
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"top_view\"):
+		visible = !visible
+"
+
+[sub_resource type="GDScript" id="GDScript_rerym"]
+script/source = "extends SubViewport
+
+func _ready() -> void:
+	RayCastUtility.debug_view_viewport = self
+"
+
+[sub_resource type="Curve3D" id="Curve3D_rerym"]
+_data = {
+"points": PackedVector3Array(-0.0922146, 0, 1.72441, 0.0922146, 0, -1.72441, 5.97055, 0, 0.935486, 1.0028, 0, 0.897247, -1.0028, 0, -0.897247, 3.30448, 0, -4.06409, 1.7681, 0, -0.316675, -1.7681, 0, 0.316675, -1.99983, 0, -5.77941, -0.477803, 0, -2.30938, 0.477803, 0, 2.30938, -6.81298, 0, -2.80216),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rerym"]
+albedo_color = Color(0.290196, 0.564706, 0.886275, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rerym"]
+material = SubResource("StandardMaterial3D_rerym")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rerym"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[sub_resource type="Animation" id="Animation_uijja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rerym"]
+resource_name = "movement"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6, 9, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uijja"]
+_data = {
+&"RESET": SubResource("Animation_uijja"),
+&"movement": SubResource("Animation_rerym")
+}
+
+[sub_resource type="GDScript" id="GDScript_5nv5w"]
+script/source = "extends Node3D
+
+const MOVE_SPEED: float = 2.0
+const CORNOR_CAST_INTERVAL: float = 0.2
+const SPRITE_WIDTH: float = 1.21
+const HALF_SPRITE_WIDTH = SPRITE_WIDTH / 2
+# godot 的坐标系统与unity 不一样
+const LOCAL_FORWARD: Vector3 = -Vector3.FORWARD
+const LOCAL_RIGHT: Vector3 = -Vector3.RIGHT
+
+# 外部信息
+var immediate_mesh: ImmediateMesh = null
+
+# 当前附着的物体以及相对位置, 先设置位置，再设置法线
+var attaching_object: Node3D = null
+var attaching_local_position: Vector3
+var attaching_position: Vector3:
+	get:
+		return attaching_object.to_global(attaching_local_position)
+	set(value):
+		attaching_local_position = attaching_object.to_local(value)
+
+var attaching_local_direction: Vector3
+var attaching_normal: Vector3:
+	get:
+		var local_to_global_basis: Basis = global_transform.basis
+		return (local_to_global_basis * attaching_local_direction).normalized()
+	set(value):
+		var global_to_local_basis: Basis = global_transform.basis.inverse()
+		attaching_local_direction = (global_to_local_basis * value).normalized()
+
+func _ready() -> void:
+	var mesh_instance = get_node(\"MeshInstance3D\")
+	if mesh_instance != null and mesh_instance.mesh is ImmediateMesh:
+		immediate_mesh = mesh_instance.mesh as ImmediateMesh
+	
+func _process(delta: float) -> void:
+	# step 1: 初次射线检查, 检查附着点
+	var start = attaching_position + attaching_normal * 0.2 if attaching_object != null else to_global(-LOCAL_FORWARD * 0.2)
+	var end = attaching_position - attaching_normal * 2 if attaching_object != null else to_global(LOCAL_FORWARD * 2)
+	var first_hit = RayCastUtility.cast(self, start, end, RayCastUtility.MASK_WALL)
+	if not first_hit: 
+		return
+	var h_collider = first_hit[\"collider\"] as Node3D
+	var h_position = first_hit[\"position\"] as Vector3
+	var h_normal = first_hit[\"normal\"] as Vector3
+	if h_collider != attaching_object:
+		attaching_object = h_collider
+		attaching_position = h_position
+		attaching_normal = h_normal
+	#DebugDraw3D.draw_ray(attaching_position, attaching_normal, 1, Color.YELLOW)
+	# step 2: cornor check
+	var origin = attaching_position + attaching_normal * CORNOR_CAST_INTERVAL / 2
+	var cornor_left_hit = RayCastUtility.cast_wall_cornor(
+		self, origin, attaching_normal.rotated(Vector3.DOWN, PI / 2), 
+		HALF_SPRITE_WIDTH * 1.5, CORNOR_CAST_INTERVAL, Vector3.DOWN, RayCastUtility.MASK_WALL)
+	
+	var cornor_right_hit = RayCastUtility.cast_wall_cornor(
+		self, origin, attaching_normal.rotated(Vector3.UP, PI / 2), 
+		HALF_SPRITE_WIDTH * 1.5, CORNOR_CAST_INTERVAL, Vector3.UP, RayCastUtility.MASK_WALL)
+
+	if not cornor_left_hit or not cornor_right_hit: 
+		return
+	var left_cast_point = cornor_left_hit[\"position\"]
+	var left_cast_normal = cornor_left_hit[\"normal\"]
+	var right_cast_point = cornor_right_hit[\"position\"]
+	var right_cast_normal = cornor_right_hit[\"normal\"]
+	
+	# step 3: compute wall intersect point && real next point and normal
+	var result = compute_line_intersect(left_cast_point, left_cast_normal, right_cast_point, right_cast_normal)
+
+	#region debug
+	var real_move_speed = MOVE_SPEED
+	if Input.is_key_pressed(KEY_SHIFT):
+		real_move_speed = 0.005
+		if Input.is_key_pressed(KEY_CTRL):
+			real_move_speed = 0.00005
+	#endregion
+	
+	# step 4: get input vector
+	var input = Input.get_axis(\"wall_left\", \"wall_right\")
+	if is_zero_approx(input): 
+		return
+	var direction = attaching_normal.rotated(Vector3.UP if input > 0 else Vector3.DOWN, PI / 2)
+	var movement = real_move_speed * delta
+	var is_in_cornor = false
+	if result == null:
+		attaching_position = attaching_position.move_toward(right_cast_point if input > 0 else left_cast_point, movement)
+	else:
+		#TODO: 思考为什么边缘刚刚接触到的拐角一瞬间会有一个位置的跳变呢?
+		var cornor_wall_point = result as Vector3
+		var direction_to_cornor = attaching_position.direction_to(cornor_wall_point)
+		var distance_to_cornor = attaching_position.distance_to(cornor_wall_point)
+		is_in_cornor = distance_to_cornor < SPRITE_WIDTH
+		if direction_to_cornor.dot(direction) < 0:
+			attaching_position = attaching_position.move_toward(right_cast_point if input > 0 else left_cast_point, movement)
+		else:
+			if movement < distance_to_cornor:
+				attaching_position = attaching_position.move_toward(cornor_wall_point, movement)
+			else:
+				attaching_position = cornor_wall_point.move_toward(right_cast_point if input > 0 else left_cast_point, movement - distance_to_cornor)
+	
+	## step 5: update self's global_position and rotation
+	# 这种写法的问题是: 由于法线是歪的，所以第一个射线检测就很短，就导致了总长度不够
+	attaching_normal = (left_cast_normal + right_cast_normal).normalized()
+	global_position = attaching_position
+	look_at(attaching_position + attaching_normal)
+	
+	### step 6: 更新 mesh 的顶点信息
+	immediate_mesh.clear_surfaces()
+	if result == null or not is_in_cornor:
+		set_mesh(Vector3.ZERO, -LOCAL_FORWARD, -LOCAL_FORWARD)
+	else:
+		var intersect = result as Vector3
+		var local_left_normal = to_local(left_cast_point).direction_to(to_local(left_cast_point + left_cast_normal))
+		var local_right_normal = to_local(right_cast_point).direction_to(to_local(right_cast_point + right_cast_normal))
+		set_mesh(to_local(intersect), local_left_normal, local_right_normal)
+
+func to_vector2(origin: Vector3) -> Vector2:
+	return Vector2(origin.x, origin.z)
+
+func compute_line_intersect(point_a: Vector3, normal_a: Vector3, point_b:Vector3, normal_b: Vector3) -> Variant:
+	var from_a = to_vector2(point_a)
+	var dir_a = to_vector2(normal_a).orthogonal()
+	var from_b = to_vector2(point_b)
+	var dir_b = to_vector2(normal_b).orthogonal()
+	var result = Geometry2D.line_intersects_line(from_a, dir_a, from_b, dir_b)
+	if result == null: 
+		return null
+	else:
+		return Vector3(result.x, (point_a.y + point_b.y) / 2, result.y)
+
+# 全部传入 local position
+func set_mesh(cornor_position: Vector3, left_normal: Vector3, right_normal: Vector3, delta: float = 0.1):
+	var left_dir = left_normal.rotated(Vector3.DOWN, PI / 2)
+	var right_dir = right_normal.rotated(Vector3.UP, PI / 2)
+	var center_normal = (left_normal + right_normal).normalized()
+	var center_to_cornor_length = cornor_position.length()
+	var min_length = max(0, HALF_SPRITE_WIDTH - center_to_cornor_length)
+	var max_length = HALF_SPRITE_WIDTH + center_to_cornor_length
+	
+	var is_cornor_on_left_side = cornor_position.dot(LOCAL_RIGHT) < 0
+	var left_length = min_length if is_cornor_on_left_side else max_length
+	var right_length = max_length if is_cornor_on_left_side else min_length
+	var center_uv = clamp(left_length / SPRITE_WIDTH, 0, 1)
+	
+	# p0 ----- p1 ----- p2
+	# |					|
+	# p5 ----- p4 ----- p3
+	#TODO: uv 需要改一改
+	#region 0 - 1 - 5
+	immediate_mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
+	immediate_mesh.surface_set_normal(left_normal)
+	immediate_mesh.surface_set_uv(Vector2(0, 0))
+	immediate_mesh.surface_add_vertex(left_normal * delta + cornor_position + left_dir * left_length + Vector3.UP * HALF_SPRITE_WIDTH)
+	
+	immediate_mesh.surface_set_normal(center_normal)
+	immediate_mesh.surface_set_uv(Vector2(center_uv, 0))
+	immediate_mesh.surface_add_vertex(center_normal * delta + cornor_position + Vector3.UP * HALF_SPRITE_WIDTH)
+	
+	immediate_mesh.surface_set_normal(left_normal)
+	immediate_mesh.surface_set_uv(Vector2(0, 1))
+	immediate_mesh.surface_add_vertex(left_normal * delta + cornor_position + left_dir * left_length + Vector3.DOWN * HALF_SPRITE_WIDTH)
+	immediate_mesh.surface_end()
+	#endregion
+	
+	#region 1 - 4 - 5
+	immediate_mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
+	immediate_mesh.surface_set_normal(center_normal)
+	immediate_mesh.surface_set_uv(Vector2(center_uv, 0))
+	immediate_mesh.surface_add_vertex(center_normal * delta + cornor_position + Vector3.UP * HALF_SPRITE_WIDTH)
+	
+	immediate_mesh.surface_set_normal(center_normal)
+	immediate_mesh.surface_set_uv(Vector2(center_uv, 1))
+	immediate_mesh.surface_add_vertex(center_normal * delta + cornor_position + Vector3.DOWN * HALF_SPRITE_WIDTH)
+	
+	immediate_mesh.surface_set_normal(left_normal)
+	immediate_mesh.surface_set_uv(Vector2(0, 1))
+	immediate_mesh.surface_add_vertex(left_normal * delta + cornor_position + left_dir * left_length + Vector3.DOWN * HALF_SPRITE_WIDTH)
+	immediate_mesh.surface_end()
+	#endregion
+	
+	#region 1 - 2 - 3
+	immediate_mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
+	immediate_mesh.surface_set_normal(center_normal)
+	immediate_mesh.surface_set_uv(Vector2(center_uv, 0))
+	immediate_mesh.surface_add_vertex(center_normal * delta + cornor_position + Vector3.UP * HALF_SPRITE_WIDTH)
+	
+	immediate_mesh.surface_set_normal(right_normal)
+	immediate_mesh.surface_set_uv(Vector2(1, 0))
+	immediate_mesh.surface_add_vertex(right_normal * delta + cornor_position + right_dir * right_length + Vector3.UP * HALF_SPRITE_WIDTH)
+	
+	immediate_mesh.surface_set_normal(right_normal)
+	immediate_mesh.surface_set_uv(Vector2(1, 1))
+	immediate_mesh.surface_add_vertex(right_normal * delta + cornor_position + right_dir * right_length + Vector3.DOWN * HALF_SPRITE_WIDTH)
+	immediate_mesh.surface_end()
+	#endregion
+	
+	#region 1 - 3 - 4
+	immediate_mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
+	immediate_mesh.surface_set_normal(center_normal)
+	immediate_mesh.surface_set_uv(Vector2(center_uv, 0))
+	immediate_mesh.surface_add_vertex(center_normal * delta + cornor_position + Vector3.UP * HALF_SPRITE_WIDTH)
+	
+	immediate_mesh.surface_set_normal(right_normal)
+	immediate_mesh.surface_set_uv(Vector2(1, 1))
+	immediate_mesh.surface_add_vertex(right_normal * delta + cornor_position + right_dir * right_length + Vector3.DOWN * HALF_SPRITE_WIDTH)
+	
+	immediate_mesh.surface_set_normal(center_normal)
+	immediate_mesh.surface_set_uv(Vector2(center_uv, 1))
+	immediate_mesh.surface_add_vertex(center_normal * delta + cornor_position + Vector3.DOWN * HALF_SPRITE_WIDTH)
+	immediate_mesh.surface_end()
+	#endregion
+"
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_uijja"]
+albedo_texture = ExtResource("4_uijja")
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_xp8tn"]
+
+[node name="Level_0" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l14r6")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("character")]
+transform = Transform3D(0.915817, 0, -0.401596, -0.00641312, 0.999872, -0.0146247, 0.401545, 0.0159691, 0.9157, -2.53788, 1.9587, 6.60361)
+script = ExtResource("1_5uqbp")
+character = NodePath("../PlayerCharacter")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.118231, 0.430664, -0.894735, -1.24805e-08, 0.901054, 0.433706, 0.992986, 0.0512773, -0.106532, -5.10663, 1.35484, 3.07085)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_v6xcw")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_l14r6")
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="CSGCombiner3D" parent="Wall"]
+transform = Transform3D(0.978828, 0, 0.204684, 0, 1, 0, -0.204684, 0, 0.978828, -2.2671, 0, -0.878433)
+material_override = SubResource("StandardMaterial3D_l14r6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wall/Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(3, 1, 0.5)
+material = SubResource("StandardMaterial3D_4rlqi")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Wall/Mesh"]
+transform = Transform3D(0.386566, 0, -0.922262, 0, 1, 0, 0.922262, 0, 0.386566, 1.84706, 0.5, 1.23517)
+size = Vector3(3, 1, 0.5)
+material = SubResource("StandardMaterial3D_vfa6b")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Wall/Mesh"]
+transform = Transform3D(0.965053, 0, -0.262054, 0, 1, 0, 0.262054, 0, 0.965053, 3.70936, 0.5, 2.86751)
+size = Vector3(3, 1, 0.5)
+material = SubResource("StandardMaterial3D_vfa6b")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Wall/Mesh/CSGBox3D3"]
+operation = 2
+size = Vector3(0.1, 1, 0.5)
+material = SubResource("StandardMaterial3D_vfa6b")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(0.978828, 0, 0.204684, 0, 1, 0, -0.204684, 0, 0.978828, -2.2671, 0, -0.878433)
+shape = SubResource("ConcavePolygonShape3D_uijja")
+
+[node name="PlayerCharacter" type="CharacterBody3D" parent="." node_paths=PackedStringArray("decal", "mesh", "player")]
+transform = Transform3D(-0.998675, 0, 0.0514645, 0, 1, 0, -0.0514645, 0, -0.998675, 5.605, 0, 3.591)
+collision_layer = 8
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("2_rerym")
+decal = NodePath("Decal")
+mesh = NodePath("gdbot")
+player = NodePath("AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_l14r6")
+
+[node name="gdbot" parent="PlayerCharacter" instance=ExtResource("1_7wnc2")]
+
+[node name="Decal" type="Decal" parent="PlayerCharacter"]
+transform = Transform3D(1.00004, 0, 0, 0, -4.37124e-08, -1, 0, 1.00002, -4.37114e-08, 0, 1, 1)
+visible = false
+size = Vector3(1, 2, 1)
+texture_albedo = ExtResource("4_uijja")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerCharacter"]
+libraries = {
+&"": SubResource("AnimationLibrary_rhhhf")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TopView" type="ColorRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 500)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 520.0
+offset_bottom = 520.0
+script = SubResource("GDScript_uijja")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TopView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/TopView/CenterContainer"]
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/TopView/CenterContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(450, 450)
+render_target_update_mode = 4
+script = SubResource("GDScript_rerym")
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/TopView/CenterContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.31239, 15.5279, -1.57291)
+projection = 1
+size = 2.0
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -169.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Esc 打开/关闭 TopView"
+
+[node name="DynamicBodyPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_rerym")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="DynamicBodyPath"]
+transform = Transform3D(-0.979155, 0, -0.202584, 0, 1, 0, 0.202584, 0, -0.979155, -6.81298, 0, -2.80216)
+progress = 17.8729
+rotation_mode = 1
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DynamicBodyPath/PathFollow3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DynamicBodyPath/PathFollow3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_rerym")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DynamicBodyPath/PathFollow3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_rerym")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DynamicBodyPath"]
+libraries = {
+&"": SubResource("AnimationLibrary_uijja")
+}
+autoplay = "movement"
+
+[node name="OnWallController" type="Node3D" parent="."]
+transform = Transform3D(-0.439485, 0, 0.89825, 0, 1, 0, -0.89825, 0, -0.439485, -0.175253, 0.937741, 2.92971)
+script = SubResource("GDScript_5nv5w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OnWallController"]
+material_override = SubResource("ORMMaterial3D_uijja")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_xp8tn")

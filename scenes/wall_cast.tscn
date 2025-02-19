@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://carinbl8v15au"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r6n3m"]
+size = Vector2(10, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_r6n3m"]
+data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6n3m"]
+albedo_color = Color(0.686275, 1, 0.619608, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r6n3m"]
+material = SubResource("StandardMaterial3D_r6n3m")
+size = Vector3(2, 0.01, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_53equ"]
+data = PackedVector3Array(-1, 0.005, 0.5, 1, 0.005, 0.5, -1, -0.005, 0.5, 1, 0.005, 0.5, 1, -0.005, 0.5, -1, -0.005, 0.5, 1, 0.005, -0.5, -1, 0.005, -0.5, 1, -0.005, -0.5, -1, 0.005, -0.5, -1, -0.005, -0.5, 1, -0.005, -0.5, 1, 0.005, 0.5, 1, 0.005, -0.5, 1, -0.005, 0.5, 1, 0.005, -0.5, 1, -0.005, -0.5, 1, -0.005, 0.5, -1, 0.005, -0.5, -1, 0.005, 0.5, -1, -0.005, -0.5, -1, 0.005, 0.5, -1, -0.005, 0.5, -1, -0.005, -0.5, 1, 0.005, 0.5, -1, 0.005, 0.5, 1, 0.005, -0.5, -1, 0.005, 0.5, -1, 0.005, -0.5, 1, 0.005, -0.5, -1, -0.005, 0.5, 1, -0.005, 0.5, -1, -0.005, -0.5, 1, -0.005, 0.5, 1, -0.005, -0.5, -1, -0.005, -0.5)
+
+[sub_resource type="GDScript" id="GDScript_53equ"]
+script/source = "extends StaticBody3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	var input = Input.get_axis(\"m_left\", \"m_right\")
+	self.rotate(Vector3.UP, input * delta * 1)
+"
+
+[sub_resource type="GDScript" id="GDScript_r6n3m"]
+script/source = "extends Node3D
+func _ready() -> void:
+	Utility.debug_view_viewport = get_viewport().get_viewport()
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	
+	var result = Utility.cast_cornor(self, global_position, Utility.to_global_dir(self, -Vector3.FORWARD), 1)
+	
+	if result:
+		var _s = DebugDraw3D.new_scoped_config()
+		_s.set_thickness(0)
+		_s.set_center_brightness(0.1)
+		_s.set_hd_sphere(true)
+		_s.set_viewport(get_viewport().get_viewport())
+		DebugDraw3D.draw_sphere(result[\"position\"], 0.02, Color.RED)
+		
+"
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.433828, 2.72813, 0.396884)
+projection = 1
+size = 2.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_r6n3m")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_r6n3m")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 0, 0)
+mesh = SubResource("BoxMesh_r6n3m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_53equ")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.639882, 0, -0.768473, 0, 1, 0, 0.768473, 0, 0.639882, 0, 0, 0)
+script = SubResource("GDScript_53equ")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 0, 0)
+mesh = SubResource("BoxMesh_r6n3m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_53equ")
+
+[node name="RayCast" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.446379, 0.257462, -0.174084)
+script = SubResource("GDScript_r6n3m")
